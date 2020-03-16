@@ -3,7 +3,7 @@ const path = require('path');
 const ejs = require('ejs');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
-const Image = require('./models/gallery.js');
+const Image = require('./models/Image.js');
 
 //Express module
 
@@ -23,10 +23,10 @@ mongoose.connect(dbURI, {
     useNewUrlParser: true
 });
 
-const db = mongoose.connection;
+let db = mongoose.connection;
 
 db.on('error', function(error) {
-    console.log(`Connected error: ${error.message}`);
+    console.log(`Connection error: ${error.message}`);
 });
 
 db.once('open', function() {
@@ -54,7 +54,7 @@ app.get ('/', function(req, res) {
 app.get ('/gallery', function(req, res) {
     Image.find(function(error, result) {
         res.locals.gallery= result;
-        res.render('gallery', {title: 'Gallery'});
+        res.render("gallery", {title: 'Gallery'});
     })
     
 });
@@ -66,7 +66,7 @@ app.get ('/gallery/:id', function(req, res, next) {
         }
 
         res.locals.gallery= result;
-        res.render('galleryId', {title: `${req.params.id}`})
+        res.render("galleryId", {title: `${req.params.id}`})
     });
 });
 
