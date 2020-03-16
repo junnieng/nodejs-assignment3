@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(express.static('public/images'));
 
-//
+// Connect to the database but mine gallery doesn't work and I can't find the problem
 
 const dbURI = process.env.MONGODB_URL;
 mongoose.connect(dbURI, {
@@ -24,6 +24,8 @@ mongoose.connect(dbURI, {
 });
 
 var db = mongoose.connection;
+
+// Callback to announce whether the connection to DB is successful or not
 
 db.on('error', function(error) {
     console.log(`Connection error: ${error.message}`);
@@ -34,7 +36,7 @@ db.once('open', function() {
 
 });
 
-//
+// Using CORS to allow inbound requests to the server
 
 const cors = require('cors');
 
