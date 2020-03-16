@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+<!--Try to run css (might be because the cssstylesheet.ejs could not be accessed in the same way with the gallery.ejs and index.ejs-->
+<link rel='stylesheet' href='/css/style.css'>
+<!---->
+    <div id="main">
+        <div id="site_content">
+            <div class="item">
+                <%
+                    for(pic of gallery) {
+                        if(pic.id == title) { %>
+                        <figure>
+                            <img src="/images/lrg/<%= pic.fileName %>" alt="<% pic.title %>" >
+                            <h3> <%= pic.title %> </h3>
+                            <figcaption><a class="source" href="<%= pic.attribution.url %>"> <%= pic.attribution.credit %> </a> / from <%= pic.attribution.source %> </figcaption>
+                        </figure>
+                <%} } %>
+            </div> 
+        </div>
+    </div>  
+
+
+<%- include('partials/footer') %>

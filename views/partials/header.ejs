@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title> <%= title %> </title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <%- include('cssstylesheet.ejs') %>
+</head>
+
+<body>
+<div id="header">
+    <div id="logo">
+      <div id="logo_text">
+        <h1><a href="/">night<span class="logo_colour">_sky</span></a></h1>
+        <h2>Simple. Contemporary. Website Template.</h2>
+      </div>
+    </div>
+    <div id="menubar">
+      <ul id="menu">
+        <!-- put class="changeColor" in the li tag for the selected page - to highlight which page you're on -->
+        <li <% if (title == 'Home') {%> class="changeColor" <%} %> class="selected"><a href="/">Home</a></li>
+        <li <% if (title == 'Gallery') {%> class="changeColor" <%} %> ><a href="/gallery">Gallery</a></li>
+      </ul>
+    </div>
+</div>
