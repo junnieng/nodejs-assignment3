@@ -6,7 +6,7 @@
             <% for(pic of gallery) { %>
             <figure>
                 <a href="/gallery/<%= pic.id %>">
-                <img src="/images/sm/<%= pic.fileName %>" alt="<% pic.title %>">
+                <img src="/public/images/sm/<%= pic.fileName %>" alt="<% pic.title %>">
                 </a>
                 <h3> <%= pic.title %> </h3>
                 <figcaption> <%= pic.attribution.credit %> </figcaption>

@@ -23,7 +23,7 @@ mongoose.connect(dbURI, {
     useNewUrlParser: true
 });
 
-let db = mongoose.connection;
+var db = mongoose.connection;
 
 db.on('error', function(error) {
     console.log(`Connection error: ${error.message}`);
@@ -59,7 +59,7 @@ app.get ('/gallery', function(req, res) {
     
 });
 
-app.get ('/gallery/:id', function(req, res, next) {
+app.get ('/gallery/:id', function(req, res) {
     Image.findOne({id: req.params.id}, function(error, result) {
         if (error) {
             return console.log(error);
